@@ -1,0 +1,34 @@
+{
+    "name": "proxmox-commandes",
+    "version": "1.0.0",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "build": "rimraf ./dist && tsc",
+        "start": "node ./dist/app.js",
+        "devstart": "nodemon --legacy-watch --watch . --ext ts,js,json --exec node --import \"./ts-loader.js\" ./app.ts",
+        "debug": "nodemon --legacy-watch --watch . --ext ts,js,json --ignore ./dist/* --exec \"rimraf ./dist && tsc -p ./tsconfig-dev.json && node --inspect-brk ./dist/app.js\"",
+        "lint": "npx eslint .",
+        "format": "npx prettier --write .",
+        "savevm": "node ./dist/src/scripts/save-vm.js",
+        "devsavevm": "nodemon --legacy-watch --watch . --ext ts,js,json --exec node --import \"./ts-loader.js\" ./src/scripts/save-vm.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "@types/node": "^22.10.1",
+        "eslint": "^9.16.0",
+        "eslint-config-prettier": "^9.1.0",
+        "nodemon": "^3.1.7",
+        "prettier": "^3.4.2",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.7.2",
+        "typescript-eslint": "^8.17.0"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.7",
+        "rimraf": "^6.0.1"
+    }
+}
